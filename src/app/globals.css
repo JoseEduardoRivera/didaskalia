@@ -26,8 +26,67 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation-duration: 0.5;
+  -webkit-animation-fill-mode: both;
+  animation-duration: 0.5;
+  animation-fill-mode: both;
+
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.btn-primary {
+  @apply bg-yellow-500 hover:bg-yellow-700 text-slate-200 py-2 px-4 rounded-sm transition-all;
+}
+
+.btn-secondary {
+  @apply bg-slate-900 hover:bg-black text-slate-200 py-2 px-4 rounded-sm transition-all
+}
+
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+.dark body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* globals.css */
+.hide-scroll {
+  overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+  overflow-y: hidden; /* Muestra el desplazamiento vertical si es necesario */
 }
